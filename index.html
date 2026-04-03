@@ -80,22 +80,222 @@
     body {
       background-color: #fafaf5;
       color: #17201c;
+      min-height: max(884px, 100dvh);
     }
 
     .vertical-text {
       writing-mode: vertical-rl;
     }
-  </style>
-  <style>
-    body {
-      min-height: max(884px, 100dvh);
+
+    /* ── Scroll-triggered reveal animations ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-60px);
+      transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(60px);
+      transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.92);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal-scale.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Stagger children */
+    .stagger-children > .reveal:nth-child(1) { transition-delay: 0s; }
+    .stagger-children > .reveal:nth-child(2) { transition-delay: 0.12s; }
+    .stagger-children > .reveal:nth-child(3) { transition-delay: 0.24s; }
+    .stagger-children > .reveal:nth-child(4) { transition-delay: 0.36s; }
+    .stagger-children > .reveal:nth-child(5) { transition-delay: 0.48s; }
+    .stagger-children > .reveal:nth-child(6) { transition-delay: 0.6s; }
+
+    /* ── Hero animations ── */
+    @keyframes heroFadeIn {
+      from { opacity: 0; transform: scale(1.08); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes heroTextReveal {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes heroSubtitleReveal {
+      from { opacity: 0; letter-spacing: 0.8em; }
+      to { opacity: 1; letter-spacing: 0.3em; }
+    }
+    .hero-bg {
+      animation: heroFadeIn 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    .hero-subtitle {
+      opacity: 0;
+      animation: heroSubtitleReveal 1.5s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards;
+    }
+    .hero-title {
+      opacity: 0;
+      animation: heroTextReveal 1.2s cubic-bezier(0.22, 1, 0.36, 1) 1s forwards;
+    }
+    .hero-scroll {
+      opacity: 0;
+      animation: heroTextReveal 1s cubic-bezier(0.22, 1, 0.36, 1) 1.8s forwards;
+    }
+
+    /* Scroll line animation */
+    @keyframes scrollLine {
+      0% { top: -50%; }
+      100% { top: 100%; }
+    }
+    .animate-scroll-line {
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+
+    /* ── Parallax ── */
+    .parallax-bg {
+      will-change: transform;
+      transition: transform 0.1s linear;
+    }
+
+    /* ── Navbar shrink ── */
+    nav.scrolled {
+      height: 3.5rem !important;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+    }
+
+    /* ── Image hover zoom ── */
+    .img-zoom {
+      overflow: hidden;
+    }
+    .img-zoom img {
+      transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .img-zoom:hover img {
+      transform: scale(1.06);
+    }
+
+    /* ── Gallery lightbox-style hover ── */
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+    }
+    .gallery-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(23, 32, 28, 0);
+      transition: background 0.5s ease;
+    }
+    .gallery-item:hover::after {
+      background: rgba(23, 32, 28, 0.15);
+    }
+
+    /* ── Divider line animation ── */
+    .line-reveal {
+      width: 0;
+      transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .line-reveal.visible {
+      width: 100%;
+    }
+
+    /* ── Smooth underline hover ── */
+    .hover-line {
+      position: relative;
+    }
+    .hover-line::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: currentColor;
+      transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .hover-line:hover::after {
+      width: 100%;
+    }
+
+    /* ── Photo slider for space section ── */
+    .space-slider {
+      display: flex;
+      transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .space-slider img {
+      flex-shrink: 0;
+      width: 100%;
+    }
+    .slider-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.3);
+      transition: background 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
+    }
+    .slider-dot.active {
+      background: rgba(255,255,255,0.9);
+      transform: scale(1.3);
+    }
+
+    /* ── Loading screen ── */
+    #loading-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: #17201c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+    #loading-screen.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+    @keyframes loadingPulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+    .loading-text {
+      animation: loadingPulse 1.8s ease-in-out infinite;
     }
   </style>
 </head>
 
 <body class="font-body selection:bg-secondary/30">
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <span class="font-headline text-white/90 text-2xl tracking-[0.4em] loading-text">鮨ト酒 ナカニワ</span>
+  </div>
   <!-- TopAppBar -->
-  <nav
+  <nav id="main-nav"
     class="fixed top-0 w-full z-50 bg-[#fafaf5]/80 backdrop-blur-md flex justify-between items-center px-6 h-20 transition-all duration-500">
     <div class="flex items-center gap-4">
       <span class="material-symbols-outlined text-primary cursor-pointer" data-icon="menu">menu</span>
@@ -109,21 +309,22 @@
   </nav>
   <!-- Hero Section -->
   <section class="relative h-screen w-full overflow-hidden flex items-center justify-center pt-20">
-    <div class="absolute inset-0 z-0">
-      <img class="w-full h-full object-cover grayscale-[20%] brightness-75"
-        data-alt="cinematic close-up of a minimalist wooden sushi counter with a single bonsai tree, soft golden lighting against a raw concrete wall"
-        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKcJm0aaTJi8EwHSrD7ZFlL6Z7tWw3m6K8bvNDEP66CB9gEFVXHgNOowWx8f6jpyvZ-S0BsX1wNe8NaTsA2ntIPD6WqCJwyTe2SJBr93CYkp276w51aBVnpbUnmxrClxrp_qW-GzknQNXE7jZ-yyo2VZWyUzj-Z6KrsuJmxBsUPv8IgricyVL1Wn1zbTR3BZyJeQ4O-IbqUfMG85ozeKQf2nKOBTk-FFq98pi9zuws4sNC3e9t5mH9vW3LTwfd6yRhBMmN_3vZXrDJ" />
+    <div class="absolute inset-0 z-0 hero-bg">
+      <img id="hero-parallax" class="w-full h-full object-cover grayscale-[20%] brightness-75 parallax-bg scale-110"
+        alt="店内カウンター全景"
+        src="images/counter-wide.jpg"
+        onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuAKcJm0aaTJi8EwHSrD7ZFlL6Z7tWw3m6K8bvNDEP66CB9gEFVXHgNOowWx8f6jpyvZ-S0BsX1wNe8NaTsA2ntIPD6WqCJwyTe2SJBr93CYkp276w51aBVnpbUnmxrClxrp_qW-GzknQNXE7jZ-yyo2VZWyUzj-Z6KrsuJmxBsUPv8IgricyVL1Wn1zbTR3BZyJeQ4O-IbqUfMG85ozeKQf2nKOBTk-FFq98pi9zuws4sNC3e9t5mH9vW3LTwfd6yRhBMmN_3vZXrDJ';" />
     </div>
     <div class="relative z-10 text-center px-4">
       <div class="mb-6 flex justify-center">
-        <span class="font-accent italic text-secondary text-2xl tracking-[0.3em]">NAKANIWA</span>
+        <span class="font-accent italic text-secondary text-2xl hero-subtitle">NAKANIWA</span>
       </div>
       <h2
-        class="font-headline text-white text-4xl md:text-6xl leading-relaxed tracking-[0.25em] vertical-text mx-auto h-[400px]">
+        class="font-headline text-white text-4xl md:text-6xl leading-relaxed tracking-[0.25em] vertical-text mx-auto h-[400px] hero-title">
         鎌倉の静寂と、<br />一貫の宇宙。
       </h2>
     </div>
-    <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
+    <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 hero-scroll">
       <span class="font-label text-[10px] tracking-[0.4em] text-white/60">SCROLL</span>
       <div class="w-[1px] h-16 bg-white/30 relative overflow-hidden">
         <div class="absolute top-0 w-full h-1/2 bg-white/80 animate-scroll-line"></div>
@@ -133,11 +334,12 @@
   <!-- Thought/Concept -->
   <section class="py-24 px-8 bg-surface overflow-hidden">
     <div class="max-w-4xl mx-auto flex flex-col md:flex-row gap-16 items-start">
-      <div class="w-full md:w-1/2 order-2 md:order-1">
+      <div class="w-full md:w-1/2 order-2 md:order-1 reveal-left">
         <div class="mb-12">
           <span class="font-accent italic text-secondary text-lg block mb-2">Thought</span>
           <h3 class="font-headline text-3xl leading-tight tracking-widest text-primary">五味のバランス<br />鎌倉カジュアル江戸前</h3>
         </div>
+        <div class="h-[1px] bg-secondary/30 mb-8 line-reveal"></div>
         <p class="font-body text-primary/80 leading-loose text-sm mb-8">
           古都・鎌倉の静かな路地裏に佇む「ナカニワ」。<br />
           私たちが追求するのは、伝統的な江戸前の技法をベースにしながらも、現代の感性と鎌倉の旬を織り交ぜた「カジュアルな正統」です。
@@ -146,11 +348,12 @@
           甘・酸・塩・苦・旨。この「五味」が完璧な均衡を保つとき、一貫の鮨は一つの宇宙となります。緊張感のあるカウンターでありながら、中庭（ナカニワ）を眺めるような開放感と心地よさを大切にしています。
         </p>
       </div>
-      <div class="w-full md:w-1/2 order-1 md:order-2 flex justify-end">
-        <div class="relative">
+      <div class="w-full md:w-1/2 order-1 md:order-2 flex justify-end reveal-right">
+        <div class="relative img-zoom">
           <img class="w-full aspect-[3/4] object-cover grayscale-[10%] shadow-2xl"
-            data-alt="top-down artistic view of a single piece of nigiri sushi on a black ceramic plate with soft directional lighting"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOzFubsMrRK5Utski24Tqv96yyCM2B6XEuZ9kN13OhNos_t-wmMUgf1pCIrLmNeKf0DrWrfL80rSxTN4X53dJu3EdYtSapSB3X_cNP1V6yfgqH-W5ZpH5JsXm6J5SJqRAgEHKKHRv9IryGxdI-Dy0NI4lPsfSpid_DgrN7H991n0qSECurRrn0j2SmZ8yoJu_TIImpKk8qfocwfiGtuw3kDilPq48kg1IiGAUk1I7n3ifBbvsSi3MARzvPQGU6LXsMA4XwtL94ARWC" />
+            alt="特製太巻き いくらのせ"
+            src="images/futomaki.jpg"
+            onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuCOzFubsMrRK5Utski24Tqv96yyCM2B6XEuZ9kN13OhNos_t-wmMUgf1pCIrLmNeKf0DrWrfL80rSxTN4X53dJu3EdYtSapSB3X_cNP1V6yfgqH-W5ZpH5JsXm6J5SJqRAgEHKKHRv9IryGxdI-Dy0NI4lPsfSpid_DgrN7H991n0qSECurRrn0j2SmZ8yoJu_TIImpKk8qfocwfiGtuw3kDilPq48kg1IiGAUk1I7n3ifBbvsSi3MARzvPQGU6LXsMA4XwtL94ARWC';" />
           <div class="absolute -bottom-8 -left-8 bg-surface-container-low p-8 hidden md:block">
             <span class="font-headline text-4xl vertical-text tracking-widest">五味均衡</span>
           </div>
@@ -159,14 +362,27 @@
     </div>
   </section>
   <!-- Space -->
-  <section class="bg-primary text-surface py-24 px-8">
+  <section class="bg-primary text-surface py-24 px-8 overflow-hidden">
     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center max-w-6xl mx-auto">
-      <div class="md:col-span-7 relative">
-        <img class="w-full aspect-video object-cover"
-          data-alt="minimalist interior of a modern japanese restaurant with concrete walls and light wood accents overlooking a small inner courtyard with a stone lantern"
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkS1Gd9owGQRuYHeS0KEc17LDpQvaI_KsAAm2uk_L0KVZuAprpNtuj_nfZ3_Wknt6ppdkIklJEeaQXR6wNFU26PTJWnL44MdDZMuamtzDPQ9moyGFN0st1Oh9HtUIuRhZ2KPoqqSTTjR9Ztoue7oGtUa6rOtmKg7A6cew4f-kSkiaoHpYC46ahuA_lZO8hHk_3W71oF3AHtCuAiPTpGDE2GdaleoVh7G8I3j_C0dKmcFJHU-Oy_LdHyS21PJ7_fa0Bp_bIrQcjYnq7" />
+      <div class="md:col-span-7 relative reveal-scale">
+        <!-- Photo slider -->
+        <div class="relative overflow-hidden">
+          <div id="space-slider" class="space-slider">
+            <img class="w-full aspect-video object-cover" alt="カウンター席" src="images/counter.jpg"
+              onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuCkS1Gd9owGQRuYHeS0KEc17LDpQvaI_KsAAm2uk_L0KVZuAprpNtuj_nfZ3_Wknt6ppdkIklJEeaQXR6wNFU26PTJWnL44MdDZMuamtzDPQ9moyGFN0st1Oh9HtUIuRhZ2KPoqqSTTjR9Ztoue7oGtUa6rOtmKg7A6cew4f-kSkiaoHpYC46ahuA_lZO8hHk_3W71oF3AHtCuAiPTpGDE2GdaleoVh7G8I3j_C0dKmcFJHU-Oy_LdHyS21PJ7_fa0Bp_bIrQcjYnq7';" />
+            <img class="w-full aspect-video object-cover" alt="中庭テラス席" src="images/garden.jpg"
+              onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuCkS1Gd9owGQRuYHeS0KEc17LDpQvaI_KsAAm2uk_L0KVZuAprpNtuj_nfZ3_Wknt6ppdkIklJEeaQXR6wNFU26PTJWnL44MdDZMuamtzDPQ9moyGFN0st1Oh9HtUIuRhZ2KPoqqSTTjR9Ztoue7oGtUa6rOtmKg7A6cew4f-kSkiaoHpYC46ahuA_lZO8hHk_3W71oF3AHtCuAiPTpGDE2GdaleoVh7G8I3j_C0dKmcFJHU-Oy_LdHyS21PJ7_fa0Bp_bIrQcjYnq7';" />
+            <img class="w-full aspect-video object-cover" alt="カウンター全景" src="images/counter-wide.jpg"
+              onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuCkS1Gd9owGQRuYHeS0KEc17LDpQvaI_KsAAm2uk_L0KVZuAprpNtuj_nfZ3_Wknt6ppdkIklJEeaQXR6wNFU26PTJWnL44MdDZMuamtzDPQ9moyGFN0st1Oh9HtUIuRhZ2KPoqqSTTjR9Ztoue7oGtUa6rOtmKg7A6cew4f-kSkiaoHpYC46ahuA_lZO8hHk_3W71oF3AHtCuAiPTpGDE2GdaleoVh7G8I3j_C0dKmcFJHU-Oy_LdHyS21PJ7_fa0Bp_bIrQcjYnq7';" />
+          </div>
+          <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-3">
+            <button class="slider-dot active" data-slide="0" aria-label="スライド1"></button>
+            <button class="slider-dot" data-slide="1" aria-label="スライド2"></button>
+            <button class="slider-dot" data-slide="2" aria-label="スライド3"></button>
+          </div>
+        </div>
       </div>
-      <div class="md:col-span-5 md:pl-12">
+      <div class="md:col-span-5 md:pl-12 reveal">
         <span class="font-accent italic text-secondary text-lg block mb-4">Space</span>
         <h3 class="font-headline text-4xl tracking-widest mb-8">光と影を愉しむ<br />テクトニックな空間</h3>
         <p class="text-sm leading-relaxed text-surface-variant font-body">
@@ -177,13 +393,13 @@
   </section>
   <!-- Menu Section -->
   <section class="py-24 px-8 bg-surface-container-low">
-    <div class="max-w-4xl mx-auto text-center mb-16">
+    <div class="max-w-4xl mx-auto text-center mb-16 reveal">
       <span class="font-accent italic text-secondary text-lg block mb-2">Menu</span>
       <h3 class="font-headline text-3xl tracking-widest">お品書き</h3>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-outline-variant/30 max-w-5xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-outline-variant/30 max-w-5xl mx-auto stagger-children">
       <!-- Course 1 -->
-      <div class="bg-surface p-12 flex flex-col justify-between hover:bg-surface-container transition-colors">
+      <div class="bg-surface p-12 flex flex-col justify-between hover:bg-surface-container transition-colors duration-500 reveal">
         <div>
           <h4 class="font-headline text-xl mb-4 tracking-widest">土曜限定 昼のおまかせ</h4>
           <p class="text-xs text-primary/60 mb-6 font-label tracking-tighter">Saturday Lunch Course</p>
@@ -196,7 +412,7 @@
         </div>
       </div>
       <!-- Course 2 -->
-      <div class="bg-surface p-12 flex flex-col justify-between hover:bg-surface-container transition-colors">
+      <div class="bg-surface p-12 flex flex-col justify-between hover:bg-surface-container transition-colors duration-500 reveal">
         <div>
           <h4 class="font-headline text-xl mb-4 tracking-widest">おまかせコース</h4>
           <p class="text-xs text-primary/60 mb-6 font-label tracking-tighter">Omakase Course</p>
@@ -239,85 +455,89 @@
     </div>
   </section>
   <!-- Kodawari/Commitment Bento Grid -->
-  <section class="py-24 px-8 bg-surface">
+  <section class="py-24 px-8 bg-surface overflow-hidden">
     <div class="max-w-6xl mx-auto">
-      <div class="mb-16 text-right md:text-left">
+      <div class="mb-16 text-right md:text-left reveal">
         <span class="font-accent italic text-secondary text-lg block mb-2">Commitment</span>
         <h3 class="font-headline text-4xl tracking-widest">四つのこだわり</h3>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div class="bg-surface-container-low p-8 col-span-1 md:col-span-2">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 stagger-children">
+        <div class="bg-surface-container-low p-8 col-span-1 md:col-span-2 reveal">
           <h5 class="font-headline text-lg mb-4 text-secondary">1. 舎利 - Shari</h5>
           <p class="text-sm leading-loose">
             厳選した赤酢と米を独自の比率でブレンド。温度管理を徹底し、ネタの旨味を引き立てる絶妙な硬さと酸味を追求。
           </p>
         </div>
-        <div class="relative overflow-hidden aspect-square col-span-1">
+        <div class="relative overflow-hidden aspect-square col-span-1 img-zoom gallery-item reveal">
           <img class="w-full h-full object-cover"
-            data-alt="close up of perfectly seasoned sushi rice in a traditional wooden tub with steam rising softly"
+            alt="舎利"
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNzdiKULZJ2cQ9GjQ8s1X6N7Bd9flM5qM8roSpORzbuxyTDyd8nL9FerkxBc3GigwveQlCO512oup9uqh8n4x4-g3ClwtQrJ5pKCrLKLbC2gyV-JRDk5Zgg2O_ghArOD-Ss93w9YW-J0Xc9Acz79NaYa3Oqf4wWqJzo_NphYwUWVlB8uGKW7db_zwvojXNCC1aSWLhI20KY8ZslsyC8R9QpK8WgwvEXoXOdXIHtSJ97MZ_diB45_EbldGldghH10iFdmLK5e9JH-YI" />
         </div>
-        <div class="bg-primary text-surface p-8 col-span-1">
+        <div class="bg-primary text-surface p-8 col-span-1 reveal">
           <h5 class="font-headline text-lg mb-4 text-tertiary-fixed-dim">2. 素材 - Ingredients</h5>
           <p class="text-sm leading-loose">
             地元鎌倉の朝採れ野菜と、豊洲から届く最高級の魚介。季節が運ぶ「走り・旬・名残」を。
           </p>
         </div>
-        <div class="bg-surface-container-highest p-8 col-span-1">
+        <div class="bg-surface-container-highest p-8 col-span-1 reveal">
           <h5 class="font-headline text-lg mb-4 text-secondary">3. 熟成 - Aging</h5>
           <p class="text-sm leading-loose">
             最新の低温熟成技術と伝統の「寝かせ」を融合。タンパク質が旨味成分に変わる瞬間を捉えます。
           </p>
         </div>
-        <div class="bg-surface-container-low p-8 col-span-1 md:col-span-2">
+        <div class="bg-surface-container-low p-8 col-span-1 md:col-span-2 reveal">
           <h5 class="font-headline text-lg mb-4 text-secondary">4. 銘酒 - Sake</h5>
           <p class="text-sm leading-loose">
             希少な地酒からヴィンテージまで。鮨の余韻を深めるペアリングをご提案いたします。
           </p>
         </div>
-        <div class="relative overflow-hidden aspect-square col-span-1">
+        <div class="relative overflow-hidden aspect-square col-span-1 img-zoom gallery-item reveal">
           <img class="w-full h-full object-cover"
-            data-alt="aesthetic pouring of japanese sake into a crystal glass with soft refractions and a dark background"
+            alt="日本酒"
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-fdJa9tVyySSCg5OdUM4_LEJAHofF1EWjhzpSWQzxpVVOqmda7ol8jNCJwLIuXuIZJ3to_4UMAB8P3icZ3nplqOqENw3GNTSbahf5FjNaQipCcDbvrv76BsoSHsDaogYIU4xbC6P3MI6QquQLPlp8tzGxN6YwWTHLWQzHpkjHKoSE-L9ynT8blj-jzOLnyf_bCW3Krfv500M1bC0dl4RaUnP41AeCSSsKHFBjawYAnldQFhC_Me9lb6oKhWMV3hQf1fGyoQRRaq5m" />
         </div>
       </div>
     </div>
   </section>
   <!-- Instagram Placeholder -->
-  <section class="py-24 px-8 bg-surface-container-low border-y border-outline-variant/15">
+  <section class="py-24 px-8 bg-surface-container-low border-y border-outline-variant/15 overflow-hidden">
     <div class="max-w-6xl mx-auto">
-      <div class="flex justify-between items-end mb-12">
+      <div class="flex justify-between items-end mb-12 reveal">
         <h3 class="font-headline text-2xl tracking-widest">Instagram</h3>
-        <a class="text-xs font-label tracking-widest border-b border-primary/40 pb-1" href="#">FOLLOW @NAKANIWA</a>
+        <a class="text-xs font-label tracking-widest hover-line pb-1" href="#">FOLLOW @NAKANIWA</a>
       </div>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-        <div class="aspect-square bg-surface-container-high group overflow-hidden">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-2 stagger-children">
+        <div class="aspect-square bg-surface-container-high group overflow-hidden gallery-item reveal">
           <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 cursor-pointer"
-            data-alt="instagram post of a beautiful piece of tuna nigiri"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJfd2bW1tE4UDWspg5OjLGTZGA515bYwdl0ShXIsthi57GQ63OXPq_O9VbjDuRbz7rCz6aU9lfK7bKsPPXCJVdiQ_C6f0orlBhXUbCHIusaekRVuZQaBx08oLdipsUSyDGbYmUm5Xixy5QBa-nf7kBbHdltkwrUWEb4p2rxqaVRCyVdlXTgIR_kbeRL6OlBmAxj3XqZsNSSpW7LrZ1ScjR94qaycfB2FHJ7Q2XAHPah0CaFrscxxM4O0GyPgNwzVqqKPCJTn9mvlEb" />
+            alt="特製太巻き"
+            src="images/futomaki.jpg"
+            onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuCJfd2bW1tE4UDWspg5OjLGTZGA515bYwdl0ShXIsthi57GQ63OXPq_O9VbjDuRbz7rCz6aU9lfK7bKsPPXCJVdiQ_C6f0orlBhXUbCHIusaekRVuZQaBx08oLdipsUSyDGbYmUm5Xixy5QBa-nf7kBbHdltkwrUWEb4p2rxqaVRCyVdlXTgIR_kbeRL6OlBmAxj3XqZsNSSpW7LrZ1ScjR94qaycfB2FHJ7Q2XAHPah0CaFrscxxM4O0GyPgNwzVqqKPCJTn9mvlEb';" />
         </div>
-        <div class="aspect-square bg-surface-container-high group overflow-hidden">
+        <div class="aspect-square bg-surface-container-high group overflow-hidden gallery-item reveal">
           <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 cursor-pointer"
-            data-alt="instagram post of the inner courtyard at night with soft lighting"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoYeCjB02cwT8x25iCRx1CWOsPGSB16dPVtGEnW7AsD076JbqdEowUA-hzX5j8H5KX2S-nAmMfyuZ4Ima9tm-oKrSE8mm92mP7hl33CETRr5GDbQdNeOUHvKnEjWKGPoJLhJ6bo5iSph_hinekRp7HTps2kunBqqxCvnMOon_74zcbFZFmZRKHPs64WxiSrkZR4qTGUu1QUpMCY-wKCv3u2Wrt9hRjsH7HD35OHoV0ZjczBZcjDl80PoRHgGIP0la5Sn72k9m2hGVy" />
+            alt="店舗外観"
+            src="images/exterior.jpg"
+            onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuDoYeCjB02cwT8x25iCRx1CWOsPGSB16dPVtGEnW7AsD076JbqdEowUA-hzX5j8H5KX2S-nAmMfyuZ4Ima9tm-oKrSE8mm92mP7hl33CETRr5GDbQdNeOUHvKnEjWKGPoJLhJ6bo5iSph_hinekRp7HTps2kunBqqxCvnMOon_74zcbFZFmZRKHPs64WxiSrkZR4qTGUu1QUpMCY-wKCv3u2Wrt9hRjsH7HD35OHoV0ZjczBZcjDl80PoRHgGIP0la5Sn72k9m2hGVy';" />
         </div>
-        <div class="aspect-square bg-surface-container-high group overflow-hidden">
+        <div class="aspect-square bg-surface-container-high group overflow-hidden gallery-item reveal">
           <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 cursor-pointer"
-            data-alt="instagram post showing a seasonal sake bottle"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAhNa-Q6oj1gf6UQ-zWM4axdUosg_A30q8_-4AGciOMcfKcTWQd6Xbwl3_BuGaXzrhiWuQPUXoPr2RnIj2tl8a0AuTf7FsLHUJZFjpXWVWtBSy1p4fOkYwXZNnYPUQWGRXNGy-1xQWsqbzMX5YJu74G_sWhMjtrB8aLJj-jiOhi0mpAWdz0pN8alioj-GwWNSAyYgGnmwA4-5GCjJBceXIMDGHnFblTlTP56ozw8szFLWYaO_bVClMqhrFzElxq--FVJ6-hYW_I220" />
+            alt="カウンター席"
+            src="images/counter.jpg"
+            onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuCAhNa-Q6oj1gf6UQ-zWM4axdUosg_A30q8_-4AGciOMcfKcTWQd6Xbwl3_BuGaXzrhiWuQPUXoPr2RnIj2tl8a0AuTf7FsLHUJZFjpXWVWtBSy1p4fOkYwXZNnYPUQWGRXNGy-1xQWsqbzMX5YJu74G_sWhMjtrB8aLJj-jiOhi0mpAWdz0pN8alioj-GwWNSAyYgGnmwA4-5GCjJBceXIMDGHnFblTlTP56ozw8szFLWYaO_bVClMqhrFzElxq--FVJ6-hYW_I220';" />
         </div>
-        <div class="aspect-square bg-surface-container-high group overflow-hidden">
+        <div class="aspect-square bg-surface-container-high group overflow-hidden gallery-item reveal">
           <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 cursor-pointer"
-            data-alt="instagram post of a sushi chef at work"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvR2WnApy_9C4VfTRz2z7ICKzv3olG0ChtyoeOqYlzfxAhH1XBqgknDcQl4dbrElTuhmgmr22XvW-GgaJwqIGo_wL3_o820lZoRgKLv3oxgbQekQLNsEVyZUFCd7mucrk4E3T1rKTHh06FyEDMJxX74aOFWWDml3LTtZt93StfnM8892xF2FBdKAcBwVtg2oWlVKu81vmZM4g0KeI_5Bt9a-FsRnrh_eHdpete_DjgTdBbQqx4Ja27X2nC0UhkU1qh3nY0jQjt0gIP" />
+            alt="中庭テラス"
+            src="images/garden.jpg"
+            onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuBvR2WnApy_9C4VfTRz2z7ICKzv3olG0ChtyoeOqYlzfxAhH1XBqgknDcQl4dbrElTuhmgmr22XvW-GgaJwqIGo_wL3_o820lZoRgKLv3oxgbQekQLNsEVyZUFCd7mucrk4E3T1rKTHh06FyEDMJxX74aOFWWDml3LTtZt93StfnM8892xF2FBdKAcBwVtg2oWlVKu81vmZM4g0KeI_5Bt9a-FsRnrh_eHdpete_DjgTdBbQqx4Ja27X2nC0UhkU1qh3nY0jQjt0gIP';" />
         </div>
       </div>
     </div>
   </section>
   <!-- Info Section -->
-  <section class="py-24 px-8 bg-surface">
+  <section class="py-24 px-8 bg-surface overflow-hidden">
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
-      <div>
+      <div class="reveal-left">
         <h3 class="font-headline text-3xl tracking-[0.2em] mb-12">店舗情報</h3>
         <div class="space-y-6 text-sm">
           <div class="flex border-b border-outline-variant/30 pb-4">
@@ -345,7 +565,7 @@
           </div>
         </div>
       </div>
-      <div class="w-full aspect-square md:aspect-auto h-full min-h-[400px] bg-surface-container grayscale">
+      <div class="w-full aspect-square md:aspect-auto h-full min-h-[400px] bg-surface-container grayscale reveal-right">
         <iframe allowfullscreen="" class="w-full h-full border-0 filter contrast-125 brightness-110"
           data-location="Kamakura" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3255.074403164966!2d139.5471465!3d35.318888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601845f269a25037%3A0x6a05e2675661d9!2z6Y6M5YCJ6aeF!5e0!3m2!1sja!2sjp!4v1700000000000!5m2!1sja!2sjp"></iframe>
@@ -359,16 +579,16 @@
       <span class="font-accent italic text-secondary text-lg">NAKANIWA - Kamakura Casual Edo-mae</span>
     </div>
     <div class="flex flex-wrap justify-center gap-12 text-xs font-label tracking-widest text-surface/60">
-      <a class="hover:text-secondary transition-colors" href="#">お品書き</a>
-      <a class="hover:text-secondary transition-colors" href="#">空間</a>
-      <a class="hover:text-secondary transition-colors" href="#">こだわり</a>
-      <a class="hover:text-secondary transition-colors" href="#">アクセス</a>
+      <a class="hover:text-secondary transition-colors hover-line" href="#">お品書き</a>
+      <a class="hover:text-secondary transition-colors hover-line" href="#">空間</a>
+      <a class="hover:text-secondary transition-colors hover-line" href="#">こだわり</a>
+      <a class="hover:text-secondary transition-colors hover-line" href="#">アクセス</a>
     </div>
     <div class="flex flex-col gap-4 text-xs font-label text-surface/40">
       <div class="flex gap-8 justify-center">
-        <a class="hover:text-surface transition-colors" href="#">特定商取引法</a>
-        <a class="hover:text-surface transition-colors" href="#">プライバシーポリシー</a>
-        <a class="hover:text-surface transition-colors" href="#">お問い合わせ</a>
+        <a class="hover:text-surface transition-colors hover-line" href="#">特定商取引法</a>
+        <a class="hover:text-surface transition-colors hover-line" href="#">プライバシーポリシー</a>
+        <a class="hover:text-surface transition-colors hover-line" href="#">お問い合わせ</a>
       </div>
       <p class="mt-8 tracking-[0.1em]">© 鮨ト酒 ナカニワ All Rights Reserved.</p>
     </div>
@@ -385,6 +605,80 @@
       <span class="text-[10px] font-bold font-label">NET RESERVE</span>
     </a>
   </div>
+
+  <script>
+    // ── Loading screen ──
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        document.getElementById('loading-screen').classList.add('hidden');
+      }, 800);
+    });
+
+    // ── Scroll-triggered reveal (IntersectionObserver) ──
+    var revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .line-reveal').forEach(function(el) {
+      revealObserver.observe(el);
+    });
+
+    // ── Navbar shrink on scroll ──
+    var nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 80) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    }, { passive: true });
+
+    // ── Parallax on hero image ──
+    var heroImg = document.getElementById('hero-parallax');
+    window.addEventListener('scroll', function() {
+      var scrollY = window.scrollY;
+      if (scrollY < window.innerHeight) {
+        heroImg.style.transform = 'scale(1.1) translateY(' + (scrollY * 0.25) + 'px)';
+      }
+    }, { passive: true });
+
+    // ── Space section photo slider ──
+    (function() {
+      var slider = document.getElementById('space-slider');
+      if (!slider) return;
+      var dots = document.querySelectorAll('.slider-dot');
+      var current = 0;
+      var total = slider.children.length;
+      var autoInterval;
+
+      function goToSlide(index) {
+        current = index;
+        slider.style.transform = 'translateX(-' + (current * 100) + '%)';
+        dots.forEach(function(d, i) {
+          d.classList.toggle('active', i === current);
+        });
+      }
+
+      dots.forEach(function(dot) {
+        dot.addEventListener('click', function() {
+          goToSlide(parseInt(this.getAttribute('data-slide')));
+          clearInterval(autoInterval);
+          startAuto();
+        });
+      });
+
+      function startAuto() {
+        autoInterval = setInterval(function() {
+          goToSlide((current + 1) % total);
+        }, 4500);
+      }
+      startAuto();
+    })();
+  </script>
 </body>
 
 </html>
