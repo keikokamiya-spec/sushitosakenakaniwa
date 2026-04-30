@@ -94,10 +94,10 @@
   </style>
 </head>
 
-<body class="font-body selection:bg-secondary/30">
+<body class="font-body selection:bg-secondary/30 overflow-x-hidden">
   <!-- TopAppBar -->
   <nav
-    class="fixed top-0 w-full z-50 bg-[#fafaf5]/80 backdrop-blur-md flex justify-between items-center px-6 h-20 transition-all duration-500">
+    class="fixed top-0 w-full z-50 bg-[#fafaf5]/80 backdrop-blur-md flex justify-between items-center px-4 md:px-6 h-16 md:h-20 transition-all duration-500">
     <div class="flex items-center gap-4">
       <!-- <span class="material-symbols-outlined text-primary cursor-pointer" data-icon="menu">menu</span> -->
       <a href="#" class="block h-12">
@@ -114,9 +114,10 @@
           <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
         </svg>
       </a>
-      <a class="text-xs font-bold font-label tracking-widest hidden sm:block" href="tel:0000000000">TEL</a>
-      <a class="bg-primary text-white px-6 py-2 text-sm tracking-widest hover:opacity-80 transition-opacity"
-        href="#">予約</a>
+      <a class="text-[10px] md:text-xs font-bold font-label tracking-widest hover:text-secondary transition-colors"
+        href="tel:0467539393">電話</a>
+      <a class="bg-primary text-white px-4 md:px-6 py-1.5 md:py-2 text-[10px] md:text-sm tracking-widest hover:opacity-80 transition-opacity whitespace-nowrap"
+        href="https://share.google/vd1mtUOoeb5NxbPlW">予約</a>
     </div>
   </nav>
   <!-- Hero Section -->
@@ -124,17 +125,22 @@
     <div class="absolute inset-0 z-0">
       <img class="w-full h-full object-cover grayscale-[20%] brightness-75"
         data-alt="cinematic close-up of a minimalist wooden sushi counter with a single bonsai tree, soft golden lighting against a raw concrete wall"
-        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKcJm0aaTJi8EwHSrD7ZFlL6Z7tWw3m6K8bvNDEP66CB9gEFVXHgNOowWx8f6jpyvZ-S0BsX1wNe8NaTsA2ntIPD6WqCJwyTe2SJBr93CYkp276w51aBVnpbUnmxrClxrp_qW-GzknQNXE7jZ-yyo2VZWyUzj-Z6KrsuJmxBsUPv8IgricyVL1Wn1zbTR3BZyJeQ4O-IbqUfMG85ozeKQf2nKOBTk-FFq98pi9zuws4sNC3e9t5mH9vW3LTwfd6yRhBMmN_3vZXrDJ" />
+        src="line_oa_chat_260304_113342_group_5.jpg" />
     </div>
     <div class="relative z-10 text-center px-4">
       <div class="mb-6 flex justify-center">
         <span class="font-accent italic text-secondary text-2xl tracking-[0.3em]">NAKANIWA</span>
+        <div class="flex flex-row-reverse justify-center items-start gap-x-6 md:gap-x-16 font-headline text-white py-4 md:py-12">
+          <div class="vertical-text whitespace-nowrap text-[32px] md:text-[90px] leading-tight tracking-[0.2em] pt-4 md:pt-20">
+            鎌倉の静寂と、
+          </div>
+          <div class="vertical-text whitespace-nowrap text-[32px] md:text-[90px] leading-tight tracking-[0.2em] mt-16 md:mt-48">
+            一貫の宇宙。
+          </div>
+        </div>
+
       </div>
-      <h2
-        class="font-headline text-white text-3xl md:text-4xl leading-relaxed tracking-[0.25em] vertical-text mx-auto h-[400px]">
-        鎌倉の静寂と、<br />一貫の宇宙。
-      </h2>
-    </div>
+
     <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
       <span class="font-label text-[10px] tracking-[0.4em] text-white/60">SCROLL</span>
       <div class="w-[1px] h-16 bg-white/30 relative overflow-hidden">
@@ -148,40 +154,40 @@
       <div class="w-full md:w-1/2 order-2 md:order-1">
         <div class="mb-12">
           <span class="font-accent italic text-secondary text-lg block mb-2">Thought</span>
-          <h3 class="font-headline text-3xl leading-tight tracking-widest text-primary">五味のバランス<br />鎌倉カジュアル江戸前</h3>
+          <h3 class="font-headline text-3xl leading-tight tracking-widest text-primary">
+            自由なスタイルで楽しむ“江戸前鮨”。<br />スタイリッシュでカジュアルな寿司屋</h3>
         </div>
         <p class="font-body text-primary/80 leading-loose text-sm mb-8">
-          古都・鎌倉の静かな路地裏に佇む「ナカニワ」。<br />
-          私たちが追求するのは、伝統的な江戸前の技法をベースにしながらも、現代の感性と鎌倉の旬を織り交ぜた「カジュアルな正統」です。
+          鎌倉駅からほど近く、「LAMP雪ノ下」に店を構える当店。<br />
+          新鮮なお魚や旬素材を使った江戸前鮨を、肩ひじ張らずに味わえるのが魅力です。
         </p>
         <p class="font-body text-primary/80 leading-loose text-sm">
-          甘・酸・塩・苦・旨。この「五味」が完璧な均衡を保つとき、一貫の鮨は一つの宇宙となります。緊張感のあるカウンターでありながら、中庭（ナカニワ）を眺めるような開放感と心地よさを大切にしています。
+          逸品揃いのおまかせコースのほか、お好きなものをお選びいただけるプランもご用意。厳選した日本酒や地ビールとともに、様々なシーンでお立ち寄りください。
         </p>
       </div>
-      <div class="relative">
+      <div class="relative w-full md:w-1/2">
         <img class="w-full aspect-[3/4] object-cover grayscale-[10%] shadow-2xl"
           data-alt="top-down artistic view of a single piece of nigiri sushi on a black ceramic plate with soft directional lighting"
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOzFubsMrRK5Utski24Tqv96yyCM2B6XEuZ9kN13OhNos_t-wmMUgf1pCIrLmNeKf0DrWrfL80rSxTN4X53dJu3EdYtSapSB3X_cNP1V6yfgqH-W5ZpH5JsXm6J5SJqRAgEHKKHRv9IryGxdI-Dy0NI4lPsfSpid_DgrN7H991n0qSECurRrn0j2SmZ8yoJu_TIImpKk8qfocwfiGtuw3kDilPq48kg1IiGAUk1I7n3ifBbvsSi3MARzvPQGU6LXsMA4XwtL94ARWC" />
+          src="line_oa_chat_260304_113347_group_2.jpg" />
         <div class="absolute -bottom-8 -left-8 bg-surface-container-low p-8 hidden md:block">
           <span class="font-headline text-4xl vertical-text tracking-widest">五味均衡</span>
         </div>
       </div>
     </div>
-    </div>
   </section>
   <!-- Space -->
-  <section class="bg-primary text-surface py-24 px-8">
+  <section class="py-24 px-8 bg-surface">
     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center max-w-6xl mx-auto">
       <div class="md:col-span-7 relative">
         <img class="w-full aspect-video object-cover"
           data-alt="minimalist interior of a modern japanese restaurant with concrete walls and light wood accents overlooking a small inner courtyard with a stone lantern"
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkS1Gd9owGQRuYHeS0KEc17LDpQvaI_KsAAm2uk_L0KVZuAprpNtuj_nfZ3_Wknt6ppdkIklJEeaQXR6wNFU26PTJWnL44MdDZMuamtzDPQ9moyGFN0st1Oh9HtUIuRhZ2KPoqqSTTjR9Ztoue7oGtUa6rOtmKg7A6cew4f-kSkiaoHpYC46ahuA_lZO8hHk_3W71oF3AHtCuAiPTpGDE2GdaleoVh7G8I3j_C0dKmcFJHU-Oy_LdHyS21PJ7_fa0Bp_bIrQcjYnq7" />
+          src="line_oa_chat_260304_113342_group_2.jpg" />
       </div>
       <div class="md:col-span-5 md:pl-12">
         <span class="font-accent italic text-secondary text-lg block mb-4">Space</span>
-        <h3 class="font-headline text-4xl tracking-widest mb-8">光と影を愉しむ<br />テクトニックな空間</h3>
+        <h3 class="font-headline text-2xl md:text-4xl tracking-widest mb-8">温もりあるモダン空間<br />中庭のテラス席も</h3>
         <p class="text-sm leading-relaxed text-surface-variant font-body">
-          剥き出しのコンクリート、温かみのある白木、そして四季を映し出す「中庭」。直線的で力強い建築美と、自然の有機的な揺らぎが共存する空間で、都会の喧騒を忘れるひとときを。
+          落ち着いて過ごせる雰囲気の店内には、ライブ感溢れるカウンター10席をご用意。また、イングリッシュガーデンをイメージした中庭には、肩の力を抜いてお過ごしいただけるテラス席もございます。
         </p>
       </div>
     </div>
@@ -192,104 +198,121 @@
       <span class="font-accent italic text-secondary text-lg block mb-2">Menu</span>
       <h3 class="font-headline text-3xl tracking-widest">お品書き</h3>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-outline-variant/30 max-w-5xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-outline-variant/30 max-w-6xl mx-auto">
       <!-- Course 1 -->
-      <div class="bg-surface p-12 flex flex-col justify-between hover:bg-surface-container transition-colors">
-        <div>
-          <h4 class="font-headline text-xl mb-4 tracking-widest">土曜限定 昼のおまかせ</h4>
-          <p class="text-xs text-primary/60 mb-6 font-label tracking-tighter">Saturday Lunch Course</p>
-          <p class="text-sm leading-relaxed mb-8">12:00 一斉スタート<br />握り10貫、巻物、お椀、甘味。鎌倉の週末を彩る、贅沢な昼下がりを。</p>
+      <div class="bg-surface flex flex-col justify-between hover:bg-surface-container transition-colors group">
+        <div class="aspect-[4/3] overflow-hidden">
+          <img src="line_oa_chat_260304_113347_group_0.jpg" alt="おまかせコース"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
         </div>
-        <div class="flex justify-between items-end border-t border-primary/10 pt-6">
-          <span class="font-accent text-secondary">Saturday Only</span>
-          <span class="font-headline text-2xl tracking-widest">¥12,000<span
-              class="text-xs font-label ml-1">税込</span></span>
+        <div class="p-8 flex flex-col flex-grow justify-between">
+          <div>
+            <h4 class="font-headline text-xl mb-4 tracking-widest">昼・夜【おまかせ】</h4>
+            <p class="text-xs text-primary/60 mb-6 font-label tracking-tighter">Omakase Course</p>
+            <p class="text-sm leading-relaxed mb-8">特上にぎり１２貫、前菜からデザート含め全20品ほど</p>
+          </div>
+          <div class="flex justify-between items-end border-t border-primary/10 pt-6">
+            <span class="font-accent text-secondary">Special</span>
+            <span class="font-headline text-2xl tracking-widest">¥7,800<span
+                class="text-xs font-label ml-1">税込</span></span>
+          </div>
         </div>
       </div>
       <!-- Course 2 -->
-      <div class="bg-surface p-12 flex flex-col justify-between hover:bg-surface-container transition-colors">
-        <div>
-          <h4 class="font-headline text-xl mb-4 tracking-widest">おまかせコース</h4>
-          <p class="text-xs text-primary/60 mb-6 font-label tracking-tighter">Omakase Course</p>
-          <p class="text-sm leading-relaxed mb-8">先付け、握りなど全15〜20品。<br />お椀、甘味を含む。その日最高の素材を、熟練の技で。</p>
+      <div class="bg-surface flex flex-col justify-between hover:bg-surface-container transition-colors group">
+        <div class="aspect-[4/3] overflow-hidden">
+          <img src="320x320_square_403a72291a59857c2bf41a23742527e6.jpg" alt="おきまりコース"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
         </div>
-        <div class="flex justify-between items-end border-t border-primary/10 pt-6">
-          <span class="font-accent text-secondary">Seasonal Selection</span>
-          <span class="font-headline text-2xl tracking-widest">¥12,000<span
-              class="text-xs font-label ml-1">税込</span></span>
+        <div class="p-8 flex flex-col flex-grow justify-between">
+          <div>
+            <h4 class="font-headline text-xl mb-4 tracking-widest">昼・夜【おきまり】</h4>
+            <p class="text-xs text-primary/60 mb-6 font-label tracking-tighter">Okimari Course</p>
+            <p class="text-sm leading-relaxed mb-8">上にぎり１０貫＋玉子焼き、茶碗蒸しとお味噌汁付き</p>
+          </div>
+          <div class="flex justify-between items-end border-t border-primary/10 pt-6">
+            <span class="font-accent text-secondary">Standard</span>
+            <span class="font-headline text-2xl tracking-widest">¥4,000<span
+                class="text-xs font-label ml-1">税込</span></span>
+          </div>
         </div>
       </div>
-      <!-- Drinks / Drinks Sub-Section -->
-      <div class="bg-surface p-12 md:col-span-2 flex flex-col md:flex-row gap-12 border-t border-outline-variant/10">
-        <div class="flex-1">
-          <h4 class="font-headline text-xl mb-6 tracking-widest">お飲み物</h4>
-          <ul class="space-y-4 text-sm font-body">
-            <li class="flex justify-between border-b border-outline-variant/20 pb-2">
-              <span>お酒ペアリング</span>
-              <span class="font-headline">¥5,500〜</span>
-            </li>
-            <li class="flex justify-between border-b border-outline-variant/20 pb-2">
-              <span>日本酒</span>
-              <span class="font-headline">¥1,100〜</span>
-            </li>
-            <li class="flex justify-between border-b border-outline-variant/20 pb-2">
-              <span>ビール</span>
-              <span class="font-headline">¥880〜</span>
-            </li>
-          </ul>
+      <!-- A La Carte -->
+      <div class="bg-surface flex flex-col justify-between hover:bg-surface-container transition-colors group">
+        <div class="aspect-[4/3] overflow-hidden">
+          <img src="line_oa_chat_260304_113342_group_7.jpg" alt="アラカルト"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
         </div>
-        <div class="flex-1 bg-surface-container-low p-8">
-          <h5 class="font-headline text-sm mb-4 tracking-widest text-secondary">キャンセルポリシー</h5>
-          <p class="text-xs leading-relaxed text-primary/70">
-            ご予約のキャンセルにつきましては、下記の通りキャンセル料を頂戴いたします。<br />
-            ・2日前：50%<br />
-            ・前日・当日：100%
-          </p>
+        <div class="p-8 flex flex-col flex-grow justify-between">
+          <div>
+            <h4 class="font-headline text-xl mb-4 tracking-widest">アラカルト</h4>
+            <p class="text-xs text-primary/60 mb-6 font-label tracking-tighter">A La Carte</p>
+            <p class="text-sm leading-relaxed mb-4">アラカルトでのご注文も可能です。旬の逸品や握りを一貫からお愉しみいただけます。</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
-  <!-- Kodawari/Commitment Bento Grid -->
+
+  <!-- Kodawari/Commitment Section -->
   <section class="py-24 px-8 bg-surface">
     <div class="max-w-6xl mx-auto">
-      <div class="mb-16 text-right md:text-left">
+      <div class="mb-20 text-center">
         <span class="font-accent italic text-secondary text-lg block mb-2">Commitment</span>
-        <h3 class="font-headline text-4xl tracking-widest">四つのこだわり</h3>
+        <h3 class="font-headline text-3xl md:text-4xl tracking-widest">お店のこだわり</h3>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div class="bg-surface-container-low p-8 col-span-1 md:col-span-2">
-          <h5 class="font-headline text-lg mb-4 text-secondary">1. 舎利 - Shari</h5>
-          <p class="text-sm leading-loose">
-            厳選した赤酢と米を独自の比率でブレンド。温度管理を徹底し、ネタの旨味を引き立てる絶妙な硬さと酸味を追求。
-          </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16">
+        <!-- Item 1: Food -->
+        <div class="flex flex-col gap-10 group">
+          <div class="relative overflow-hidden aspect-[4/5] bg-surface-container">
+            <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+              data-alt="close up of perfectly seasoned sushi rice in a traditional wooden tub"
+              src="line_oa_chat_260304_113347_group_1.jpg" />
+          </div>
+          <div class="px-2">
+            <div class="flex items-center gap-4 mb-6">
+              <span class="font-accent text-3xl text-secondary/30">01</span>
+              <h4 class="font-headline text-2xl tracking-widest">料理 - Food</h4>
+            </div>
+            <p class="font-body text-primary/80 leading-loose text-sm">
+              確かな目利きで仕入れる美味しいお魚を使った、江戸前鮨をご提供。厳選した秋田県産のお米と、赤酢を使用せずシンプルな白酢を使用したシャリが、ネタを引き立てます。コースは、お客様のご要望にお答えできるよう、「おきまり」「おまかせ」の2つのプランをご用意。その時々の食材を取り入れたお寿司12貫を中心に、自慢の逸品をどうぞ。季節の恵みを活かして作る、アラカルトメニューもお楽しみください。
+            </p>
+          </div>
         </div>
-        <div class="relative overflow-hidden aspect-square col-span-1">
-          <img class="w-full h-full object-cover"
-            data-alt="close up of perfectly seasoned sushi rice in a traditional wooden tub with steam rising softly"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNzdiKULZJ2cQ9GjQ8s1X6N7Bd9flM5qM8roSpORzbuxyTDyd8nL9FerkxBc3GigwveQlCO512oup9uqh8n4x4-g3ClwtQrJ5pKCrLKLbC2gyV-JRDk5Zgg2O_ghArOD-Ss93w9YW-J0Xc9Acz79NaYa3Oqf4wWqJzo_NphYwUWVlB8uGKW7db_zwvojXNCC1aSWLhI20KY8ZslsyC8R9QpK8WgwvEXoXOdXIHtSJ97MZ_diB45_EbldGldghH10iFdmLK5e9JH-YI" />
+
+        <!-- Item 2: Drink -->
+        <div class="flex flex-col gap-10 group">
+          <div class="relative overflow-hidden aspect-[4/5] bg-surface-container">
+            <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+              data-alt="aesthetic pouring of japanese sake into a crystal glass"
+              src="150x150_square_f17d660163ceca23714e3c0e01a720db.jpg" />
+          </div>
+          <div class="px-2">
+            <div class="flex items-center gap-4 mb-6">
+              <span class="font-accent text-3xl text-secondary/30">02</span>
+              <h4 class="font-headline text-2xl tracking-widest">飲料 - Drink</h4>
+            </div>
+            <p class="font-body text-primary/80 leading-loose text-sm">
+              お寿司との相性を考えたお飲み物は、地元の酒屋と相談しながら様々な店を回り、自ら仕入れ。なかでもこだわったのは日本酒。選りすぐりの銘酒を、常時約10種類ご用意しております。季節によって顔ぶれを変えておりますので、その時ならではの美味しさに出会えます。冷はワイングラスでお洒落に乾杯を。飲みやすい鎌倉のクラフトビール「ヨロッコビール」は、ユニークなラベルにもご注目。お好みに合わせてお楽しみください。
+            </p>
+          </div>
         </div>
-        <div class="bg-primary text-surface p-8 col-span-1">
-          <h5 class="font-headline text-lg mb-4 text-tertiary-fixed-dim">2. 素材 - Ingredients</h5>
-          <p class="text-sm leading-loose">
-            地元鎌倉の朝採れ野菜と、豊洲から届く最高級の魚介。季節が運ぶ「走り・旬・名残」を。
-          </p>
-        </div>
-        <div class="bg-surface-container-highest p-8 col-span-1">
-          <h5 class="font-headline text-lg mb-4 text-secondary">3. 熟成 - Aging</h5>
-          <p class="text-sm leading-loose">
-            最新の低温熟成技術と伝統の「寝かせ」を融合。タンパク質が旨味成分に変わる瞬間を捉えます。
-          </p>
-        </div>
-        <div class="bg-surface-container-low p-8 col-span-1 md:col-span-2">
-          <h5 class="font-headline text-lg mb-4 text-secondary">4. 銘酒 - Sake</h5>
-          <p class="text-sm leading-loose">
-            希少な地酒からヴィンテージまで。鮨の余韻を深めるペアリングをご提案いたします。
-          </p>
-        </div>
-        <div class="relative overflow-hidden aspect-square col-span-1">
-          <img class="w-full h-full object-cover"
-            data-alt="aesthetic pouring of japanese sake into a crystal glass with soft refractions and a dark background"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-fdJa9tVyySSCg5OdUM4_LEJAHofF1EWjhzpSWQzxpVVOqmda7ol8jNCJwLIuXuIZJ3to_4UMAB8P3icZ3nplqOqENw3GNTSbahf5FjNaQipCcDbvrv76BsoSHsDaogYIU4xbC6P3MI6QquQLPlp8tzGxN6YwWTHLWQzHpkjHKoSE-L9ynT8blj-jzOLnyf_bCW3Krfv500M1bC0dl4RaUnP41AeCSSsKHFBjawYAnldQFhC_Me9lb6oKhWMV3hQf1fGyoQRRaq5m" />
+
+        <!-- Item 3: Chef -->
+        <div class="flex flex-col gap-10 group">
+          <div class="relative overflow-hidden aspect-[4/5] bg-surface-container">
+            <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+              data-alt="Sushi chef Saito working behind the counter" src="line_oa_chat_260304_113342_group_4.jpg" />
+          </div>
+          <div class="px-2">
+            <div class="flex items-center gap-4 mb-6">
+              <span class="font-accent text-3xl text-secondary/30">03</span>
+              <h4 class="font-headline text-2xl tracking-widest">料理人 - Chef</h4>
+            </div>
+            <p class="font-body text-primary/80 leading-loose text-sm">
+              料理人の斉藤は、約25年にわたって和洋中と幅広いジャンルの料理店を経験。帰り道にフラっと気軽に立ち寄れる、街の寿司屋となるよう【鮨ト酒ナカニワ】をオープンさせました。一番の喜びは、お客様とのコミュニケーション。目の前でお料理を提供し、直接感想をいただくことで、新たな発見ややりがいが生まれます。リラックスしてお食事ができるよう、心がけておもてなしいたします。皆様のご来店をお待ちしております。
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -327,18 +350,18 @@
           <img
             class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 cursor-pointer group-hover:scale-105"
             data-alt="instagram post of the inner courtyard at night with soft lighting"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoYeCjB02cwT8x25iCRx1CWOsPGSB16dPVtGEnW7AsD076JbqdEowUA-hzX5j8H5KX2S-nAmMfyuZ4Ima9tm-oKrSE8mm92mP7hl33CETRr5GDbQdNeOUHvKnEjWKGPoJLhJ6bo5iSph_hinekRp7HTps2kunBqqxCvnMOon_74zcbFZFmZRKHPs64WxiSrkZR4qTGUu1QUpMCY-wKCv3u2Wrt9hRjsH7HD35OHoV0ZjczBZcjDl80PoRHgGIP0la5Sn72k9m2hGVy" /> </a>
+            src="line_oa_chat_260304_113342_group_3.jpg" /> </a>
         <a href="https://www.instagram.com/nakaniwa_kamakura/" target="_blank" rel="noopener noreferrer"
           class="aspect-square bg-surface-container-high group overflow-hidden block">
           <img
             class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 cursor-pointer group-hover:scale-105"
-            data-alt="instagram post showing a seasonal sake bottle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAhNa-Q6oj1gf6UQ-zWM4axdUosg_A30q8_-4AGciOMcfKcTWQd6Xbwl3_BuGaXzrhiWuQPUXoPr2RnIj2tl8a0AuTf7FsLHUJZFjpXWVWtBSy1p4fOkYwXZNnYPUQWGRXNGy-1xQWsqbzMX5YJu74G_sWhMjtrB8aLJj-jiOhi0mpAWdz0pN8alioj-GwWNSAyYgGnmwA4-5GCjJBceXIMDGHnFblTlTP56ozw8szFLWYaO_bVClMqhrFzElxq--FVJ6-hYW_I220" />
+            data-alt="instagram post showing a seasonal sake bottle" src="line_oa_chat_260304_113342_group_9.jpg" />
         </a>
         <a href="https://www.instagram.com/nakaniwa_kamakura/" target="_blank" rel="noopener noreferrer"
           class="aspect-square bg-surface-container-high group overflow-hidden block">
           <img
             class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 cursor-pointer group-hover:scale-105"
-            data-alt="instagram post of a sushi chef at work" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvR2WnApy_9C4VfTRz2z7ICKzv3olG0ChtyoeOqYlzfxAhH1XBqgknDcQl4dbrElTuhmgmr22XvW-GgaJwqIGo_wL3_o820lZoRgKLv3oxgbQekQLNsEVyZUFCd7mucrk4E3T1rKTHh06FyEDMJxX74aOFWWDml3LTtZt93StfnM8892xF2FBdKAcBwVtg2oWlVKu81vmZM4g0KeI_5Bt9a-FsRnrh_eHdpete_DjgTdBbQqx4Ja27X2nC0UhkU1qh3nY0jQjt0gIP" />
+            data-alt="instagram post of a sushi chef at work" src="line_oa_chat_260304_113342_group_4.jpg" />
         </a>
       </div>
     </div>
@@ -350,34 +373,46 @@
         <h3 class="font-headline text-3xl tracking-[0.2em] mb-12">店舗情報</h3>
         <div class="space-y-6 text-sm">
           <div class="flex border-b border-outline-variant/30 pb-4">
-            <span class="w-24 font-bold text-secondary font-label">屋号</span>
-            <span class="font-headline">鮨ト酒 ナカニワ</span>
+            <span class="w-24 font-bold text-secondary font-label">電話番号</span>
+            <span class="font-body font-bold"><a href="tel:0467539393">046-753-9393</a></span>
+          </div>
+          <div class="flex border-b border-outline-variant/30 pb-4 items-center">
+            <span class="w-24 font-bold text-secondary font-label">ネット予約</span>
+            <a href="https://share.google/vd1mtUOoeb5NxbPlW" target="_blank" rel="noopener noreferrer"
+              class="bg-primary text-on-primary px-6 py-2 text-xs tracking-widest hover:opacity-80 transition-all font-bold">
+              こちらから
+            </a>
           </div>
           <div class="flex border-b border-outline-variant/30 pb-4">
-            <span class="w-24 font-bold text-secondary font-label">所在地</span>
+            <span class="w-24 font-bold text-secondary font-label">住所</span>
             <span class="font-body">神奈川県鎌倉市雪ノ下1-6-28 LAMP雪ノ下 1F 1B</span>
           </div>
           <div class="flex border-b border-outline-variant/30 pb-4">
+            <span class="w-24 font-bold text-secondary font-label">アクセス</span>
+            <span class="font-body">鎌倉駅 徒歩6分</span>
+          </div>
+          <div class="flex border-b border-outline-variant/30 pb-4">
             <span class="w-24 font-bold text-secondary font-label">営業時間</span>
-            <div class="font-body">
-              <p>Lunch: 11:30 - 14:30 (L.O. 13:30)</p>
-              <p>Dinner: 17:00 - 22:00 (L.O. 21:00)</p>
-            </div>
+            <span class="font-body">11:30-15:00 / 17:00-23:00</span>
           </div>
           <div class="flex border-b border-outline-variant/30 pb-4">
             <span class="w-24 font-bold text-secondary font-label">定休日</span>
-            <span class="font-body">毎週水曜日</span>
+            <span class="font-body">水曜日</span>
           </div>
           <div class="flex border-b border-outline-variant/30 pb-4">
-            <span class="w-24 font-bold text-secondary font-label">アクセス</span>
-            <span class="font-body">JR・江ノ島電鉄「鎌倉駅」西口より徒歩5分</span>
+            <span class="w-24 font-bold text-secondary font-label">予算</span>
+            <div class="font-body">
+              <p>昼: 4,000円～4,999円</p>
+              <p>夜: 6,000円～7,999円</p>
+            </div>
           </div>
         </div>
       </div>
-      <div class="w-full aspect-square md:aspect-auto h-full min-h-[400px] bg-surface-container grayscale">
-        <iframe allowfullscreen="" class="w-full h-full border-0 filter contrast-125 brightness-110"
-          data-location="Kamakura" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3255.074403164966!2d139.5471465!3d35.318888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601845f269a25037%3A0x6a05e2675661d9!2z6Y6M5YCJ6aeF!5e0!3m2!1sja!2sjp!4v1700000000000!5m2!1sja!2sjp"></iframe>
+      <div class="w-full aspect-[4/3] md:aspect-auto h-[250px] md:h-full md:min-h-[400px] bg-surface-container border border-outline-variant/30 overflow-hidden">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3255.3478788010507!2d139.55312650000002!3d35.3221819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601845a5b16c2939%3A0xc119962cd60908e8!2z6a6o44OI6YWSIOODiuOCq-ODi-ODrw!5e0!3m2!1sja!2sjp!4v1776045324556!5m2!1sja!2sjp"
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </section>
@@ -385,7 +420,8 @@
   <footer class="bg-primary text-surface py-24 px-8 text-center flex flex-col items-center gap-12">
     <div class="flex flex-col items-center gap-4">
       <h1 class="text-3xl font-bold font-headline tracking-[0.3em] mb-2">鮨ト酒 ナカニワ</h1>
-      <span class="font-accent italic text-secondary text-lg">NAKANIWA - Kamakura Casual Edo-mae</span>
+      <span class="font-accent italic text-secondary text-lg mb-4">NAKANIWA - Kamakura Casual Edo-mae</span>
+      <a href="tel:0467539393" class="text-lg font-bold hover:text-secondary transition-colors">TEL: 046-753-9393</a>
     </div>
     <div class="flex flex-wrap justify-center gap-12 text-xs font-label tracking-widest text-surface/60">
       <a class="hover:text-secondary transition-colors" href="#">お品書き</a>
@@ -405,11 +441,12 @@
   <!-- Bottom Reserve Bar (Mobile Only) -->
   <div class="fixed bottom-0 w-full z-50 md:hidden grid grid-cols-2 bg-surface shadow-2xl">
     <a class="flex flex-col items-center justify-center py-4 text-primary border-r border-outline-variant/15"
-      href="tel:0000000000">
+      href="tel:0467539393">
       <span class="material-symbols-outlined text-xl mb-1" data-icon="call">call</span>
       <span class="text-[10px] font-bold font-label">TEL</span>
     </a>
-    <a class="flex flex-col items-center justify-center py-4 bg-primary text-surface" href="#">
+    <a class="flex flex-col items-center justify-center py-4 bg-primary text-surface"
+      href="https://share.google/vd1mtUOoeb5NxbPlW">
       <span class="material-symbols-outlined text-xl mb-1" data-icon="event_available">event_available</span>
       <span class="text-[10px] font-bold font-label">NET RESERVE</span>
     </a>
